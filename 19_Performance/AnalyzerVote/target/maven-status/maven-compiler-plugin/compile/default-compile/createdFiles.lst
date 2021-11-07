@@ -1,0 +1,6 @@
+Loader.class
+Voter.class
+TimePeriod.class
+WorkTime.class
+DBConnection.class
+XMLHandler.class
