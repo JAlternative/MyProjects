@@ -1,0 +1,9 @@
+PUT
+http://localhost:5442/api/animal/edit/10
+{
+    "id": "10",
+    "kind": "Кот",
+    "dateOfBirth": "2018-06-05T11:50:55",
+    "gender": "М",
+    "name": "Тихан"
+}

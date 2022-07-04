@@ -1,0 +1,2 @@
+GET
+http://localhost:5442/api/animal/10

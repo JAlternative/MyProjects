@@ -1,0 +1,9 @@
+POST
+http://localhost:5442/api/animal/create
+{
+    "id": "1",
+    "kind": "Собака",
+    "dateOfBirth": "2018-06-05T11:50:55",
+    "gender": "Мужик",
+    "name": "Вулкан"
+}
