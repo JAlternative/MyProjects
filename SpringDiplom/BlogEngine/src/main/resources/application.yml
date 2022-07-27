@@ -1,0 +1,28 @@
+spring.datasource.url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/skhoroao_site?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+spring.datasource.username: ${USERNAME}
+spring.datasource.password: ${PASSWORD}
+spring.jpa.hibernate.ddl-auto: validate
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+server.port: ${PORT:8080}
+
+blog.title: QuietCorner
+blog.subtitle: Blog
+blog.phone: +7 915 871-59-39
+blog.email: s.khoroshkov@gmail.ru
+blog.copyright: Alternative
+blog.copyrightFrom: 2021
+spring:
+  jpa:
+    show-sql: false
+    properties: true
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: ${MAIL_PROTOCOL}
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
