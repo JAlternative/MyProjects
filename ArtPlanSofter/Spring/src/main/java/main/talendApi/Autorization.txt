@@ -1,6 +1,0 @@
-POST
-http://localhost:5442/api/auth/login
-{
-    "email": "serega44015@gmail.com",
-    "password": "serega44015@gmail.com"
-}

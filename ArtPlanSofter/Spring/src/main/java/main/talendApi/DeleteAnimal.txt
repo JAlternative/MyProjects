@@ -1,2 +1,0 @@
-DELETE
-http://localhost:5442/api/animal/delete/8
