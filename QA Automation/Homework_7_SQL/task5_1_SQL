@@ -1,0 +1,60 @@
+=================================================================================
+ЛАБА 1
+=================================================================================
+1) Вывести названия сабрегионов которые в названии содержат «ca»
+---------------------------------------------------------------------------------
+SELECT DISTINCT COUNTRY_SUBREGION
+    	FROM SH.COUNTRIES
+        WHERE COUNTRY_SUBREGION LIKE '%ca%'
+---------------------------------------------------------------------------------
+
+2)  Вывести страны региона Европы и Азии, а также сабрегиона северной Америки,
+у которых ID страны больше или равен 52782
+---------------------------------------------------------------------------------
+SELECT COUNTRY_NAME
+ 	FROM SH.COUNTRIES
+     	WHERE
+     	COUNTRY_REGION = 'Europe' AND COUNTRY_ID >= 52782
+     	OR COUNTRY_REGION = 'Asia' AND COUNTRY_ID >= 52782
+     	OR COUNTRY_SUBREGION = 'Northern America' AND COUNTRY_ID >= 52782
+---------------------------------------------------------------------------------
+3)  Вывести ID страны и  «E» для региона «Europe», «MID» для региона «Middle East»,
+название региона для остальных регионов. Результат должен быть отсортирован по ID страны,
+в него должны попасть только страны начинающиеся с буквы «S» и не находящиеся в регионе «Oceania»
+---------------------------------------------------------------------------------
+SELECT
+    	CASE
+        WHEN COUNTRY_REGION = 'Europe' THEN 'E'
+        WHEN COUNTRY_REGION = 'Middle East' THEN 'MID'
+        ELSE COUNTRY_REGION
+    	END MyCol, COUNTRY_ID, COUNTRY_NAME
+        FROM SH.COUNTRIES
+        WHERE
+        SUBSTR(COUNTRY_NAME, 1, 1) = 'S'
+        AND COUNTRY_REGION NOT LIKE 'Oceania'
+        ORDER BY COUNTRY_ID
+---------------------------------------------------------------------------------
+=================================================================================
+ЛАБА 2
+=================================================================================
+1)  Из таблицы co.CUSTOMERS вывести первые буквы имён. Напротив каждой буквы,
+вывести количество почтовых ящиков, имена владельцев которых начинаются с той же буквы.
+Вывести только если данное количество больше одного. Использовать having без with
+
+---------------------------------------------------------------------------------
+SELECT SUBSTR(EMAIL_ADDRESS, 1, 1), COUNT(EMAIL_ADDRESS)
+    	FROM co.CUSTOMERS
+    	WHERE SUBSTR(UPPER(EMAIL_ADDRESS), 1, 1) = SUBSTR(FULL_NAME, 1, 1)
+        GROUP BY SUBSTR(EMAIL_ADDRESS, 1, 1)
+        HAVING COUNT(EMAIL_ADDRESS) > 1
+---------------------------------------------------------------------------------
+2)  Решить задание 1, иcпользуя только with без having
+
+WITH MyTable AS (
+	SELECT SUBSTR(EMAIL_ADDRESS, 1, 1) email, COUNT(EMAIL_ADDRESS) numbers
+    	FROM co.CUSTOMERS
+    	WHERE SUBSTR(UPPER(EMAIL_ADDRESS), 1, 1) = SUBSTR(FULL_NAME, 1, 1)
+        GROUP BY SUBSTR(EMAIL_ADDRESS, 1, 1)
+	)
+
+	SELECT * FROM MyTable WHERE numbers > 1

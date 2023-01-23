@@ -1,0 +1,24 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="MavenPackageUpdate" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="excludeList">
+        <list>
+          <option value="org.aeonbits.owner:owner" />
+          <option value="com.codeborne:selenide" />
+          <option value="io.cucumber:cucumber-java" />
+          <option value="io.cucumber:cucumber-junit" />
+          <option value="io.cucumber:cucumber-core" />
+          <option value="io.qameta.allure:allure-cucumber4-jvm" />
+          <option value="io.qameta.allure:allure-selenide" />
+          <option value="commons-io:commons-io" />
+          <option value="io.qameta.allure:allure-junit5" />
+          <option value="org.junit.jupiter:junit-jupiter-engine" />
+          <option value="org.seleniumhq.selenium:selenium-java" />
+          <option value="org.junit.jupiter:junit-jupiter-params" />
+          <option value="org.junit.jupiter:junit-jupiter-api" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
