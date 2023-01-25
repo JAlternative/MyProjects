@@ -13,7 +13,7 @@ public class DataProvider {
     /**
      * Метод возвращает
      *
-     * @return аргументы задания №1_4
+     * @return аргументы к задачам
      */
     public static Stream<Arguments> provideYandexMailOne() {
         return Stream.of(
